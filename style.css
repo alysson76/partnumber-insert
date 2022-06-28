@@ -1,0 +1,31 @@
+.formulario {
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.inp {
+    font-size: 15px;
+}
+
+.select {
+    font-size: 14px;
+}
+
+label {
+    font-size: 15px;
+}

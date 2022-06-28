@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+   
+    <title>Trace - PartNumber Insert</title>
+</head>
+<body>
+    
+    <div class="formulario">
+        <form id="pnForm">
+            <table>
+                <tr>
+                    <td style="margin-left: 10px !important;">
+                        <label> Célula:</label> <br>
+                    <select class="select" id="celula">
+                        <option value="Cel3mc" selected>Célula 3 MC</option>
+                        <option value="Cel6f" selected>Célula 6 F</option>
+                        <option value="Cel8f">Célula 8 F</option>
+                        <option value="Cel8me">Célula 8 ME</option>
+                        <option value="Cel10me">Célula 10 ME</option>
+                    </select>
+                    </td>
+                    <td id="ladoDaEtiqueta" style="display: none;">
+                        <label> Etiqueta:</label> <br>
+                        <select class="select" id="pnlado">
+                            <option value="direito" selected>Direito</option>
+                            <option value="esquerdo">Esquerdo</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <label> Descrição do Partnumber:</label> <br>
+            <input class="inp" type="text" id="Nomepn" autofocus> <br>
+            <label>Partnumber (ST..): </label> <br>
+            <input class="inp" type="text" id="pn"> <br>
+            <span id="tuboDePressao" style="display: none;">
+                <label> Código tubo de pressão: </label> <br>
+                <input class="inp" type="text" id="pnTubo"> <br>
+            </span>
+            <label>Etiqueta do cliente: </label> <br>
+            <input class="inp" type="text" id="pnEtiqueta"> <br>
+            <label>Código do fornecedor: </label> <br>
+            <input class="inp" type="text" id="pnCliente"> <br>
+            <label>Senha de segurança: </label> <br>
+            <input class="inp" type="password" id="senhaPn"> <br>
+            <button class="botao" type="submit"> Cadastrar </button>
+        </form>
+    </div>
+    
+   <script src="controller/app.js"></script>
+</body>
+</html>

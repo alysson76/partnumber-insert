@@ -1,0 +1,20 @@
+{
+  "name": "app_teste",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager ./ PartnumberInsert --plataform=windows --arch=x64 --out C:/Users/alyss/Desktop/compilado/PartnumberInsert --overwrite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^19.0.3",
+    "electron-builder": "^23.0.3",
+    "pg": "^8.7.3",
+    "sequelize": "^6.20.1",
+    "sweetalert2": "^11.4.17"
+  }
+}
