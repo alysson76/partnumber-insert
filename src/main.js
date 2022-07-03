@@ -225,6 +225,8 @@ function cel6F(idp, dados) {
     (${idp}, 9, 10, NOW(), NOW()),
     (${idp}, 9, 40, NOW(), NOW());
 
+    SELECT setval('"RECEITA_id_seq"'::regclass, (SELECT MAX (id) FROM public."RECEITA"), true);
+
     INSERT INTO "RECEITA" ("part_number", "estacao", "dados_receita", "createdAt", "updatedAt")
     VALUES (${idp}, 2, '{}', NOW(), NOW()),
     (${idp}, 4, '{}', NOW(), NOW()),
@@ -251,6 +253,8 @@ function cel8F(idp, dados) {
     (${idp}, 46, 45, NOW(), NOW()),
     (${idp}, 47, 46, NOW(), NOW());
 
+    SELECT setval('"RECEITA_id_seq"'::regclass, (SELECT MAX (id) FROM public."RECEITA"), true);
+
     INSERT INTO "RECEITA" ("part_number", "estacao", "dados_receita", "createdAt", "updatedAt")
     VALUES (${idp}, 41, '{}', NOW(), NOW()),
     (${idp}, 42, '{}', NOW(), NOW()),
@@ -258,7 +262,7 @@ function cel8F(idp, dados) {
     (${idp}, 44, '{}', NOW(), NOW()),
     (${idp}, 45, '{}', NOW(), NOW()),
     (${idp}, 46, '{}', NOW(), NOW()),
-    (${idp}, 47, '{}', NOW(), NOW())
+    (${idp}, 47, '{}', NOW(), NOW());
     `
     return query;
 }
@@ -279,6 +283,8 @@ function cel8ME(idp, dados) {
             (${idp}, 30, 29, NOW(), NOW()),
             (${idp}, 22, 30, NOW(), NOW()),
             (${idp}, 27, 22, NOW(), NOW());
+
+        SELECT setval('"RECEITA_id_seq"'::regclass, (SELECT MAX (id) FROM public."RECEITA"), true);
 
         INSERT INTO "RECEITA" ("part_number", "estacao", "dados_receita", "createdAt", "updatedAt")
         VALUES (${idp}, 17, '${etiquetaDireita}', NOW(), NOW()),
@@ -308,6 +314,8 @@ function cel8ME(idp, dados) {
             (${idp}, 22, 30, NOW(), NOW()),
             (${idp}, 27, 22, NOW(), NOW());
 
+        SELECT setval('"RECEITA_id_seq"'::regclass, (SELECT MAX (id) FROM public."RECEITA"), true);
+
         INSERT INTO "RECEITA" ("part_number", "estacao", "dados_receita", "createdAt", "updatedAt")
         VALUES (${idp}, 17, '${etiquetaEsquerda}', NOW(), NOW()),
                (${idp}, 18, '{"SIS_REC_LADOMAQUINA":"E"}', NOW(), NOW()),
@@ -326,7 +334,7 @@ function cel8ME(idp, dados) {
 function cel10ME(idp, dados) {
     let query = `
     INSERT INTO "PART_NUMBER" ("id", "codigo", "nome", "estacao_inicial", "createdAt", "updatedAt", "estacao_final", "etiqueta_cliente", "cod_fornecedor")
-    VALUES (${idp}, '${dados.codigo}', '${dados.nome}', 0, NOW(), NOW(), 61, '${dados.etq}', '${dados.cliente}')
+    VALUES (${idp}, '${dados.codigo}', '${dados.nome}', 0, NOW(), NOW(), 61, '${dados.etq}', '${dados.cliente}');
     
     INSERT INTO "FLUXO" ("part_number", "estacao", "estacao_anterior", "createdAt", "updatedAt")
     VALUES (${idp}, 56, 0, NOW(), NOW()),
@@ -335,10 +343,12 @@ function cel10ME(idp, dados) {
            (${idp}, 58, 57, NOW(), NOW()),
            (${idp}, 59, 58, NOW(), NOW()),
            (${idp}, 60, 59, NOW(), NOW()),
-           (${idp}, 61, 60, NOW(), NOW())
+           (${idp}, 61, 60, NOW(), NOW());
     
+    SELECT setval('"RECEITA_id_seq"'::regclass, (SELECT MAX (id) FROM public."RECEITA"), true);
+
     INSERT INTO "RECEITA" ("part_number", "estacao", "dados_receita", "createdAt", "updatedAt")
-    VALUES (${idp}, 55, '{"CAIXA_1_PN": "${dados.tpressao}"}', NOW(), NOW())
+    VALUES (${idp}, 55, '{"CAIXA_1_PN": "${dados.tpressao}"}', NOW(), NOW());
     `
 };
 
