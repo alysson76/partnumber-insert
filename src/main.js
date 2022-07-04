@@ -196,7 +196,7 @@ const etiquetaEsquerda = JSON.stringify({
 function cel3mc(idp, dados) {
     let query = `
     INSERT INTO "PART_NUMBER" ("id", "codigo", "nome", "estacao_inicial", "createdAt", "updatedAt", "estacao_final", "etiqueta_cliente", "cod_fornecedor")
-    VALUES (${idp}, '${dados.codigo}', '${dados.nome}', 2, NOW(), NOW(), 9, '${dados.etq}', '${dados.cliente}');
+    VALUES (${idp}, '${dados.codigo}', '${dados.nome}', 0, NOW(), NOW(), 22, '${dados.etq}', '${dados.cliente}');
 
     INSERT INTO "FLUXO" ("part_number", "estacao", "estacao_anterior", "createdAt", "updatedAt")
     VALUES (${idp}, 1, 0, NOW(), NOW()),
@@ -350,6 +350,7 @@ function cel10ME(idp, dados) {
     INSERT INTO "RECEITA" ("part_number", "estacao", "dados_receita", "createdAt", "updatedAt")
     VALUES (${idp}, 55, '{"CAIXA_1_PN": "${dados.tpressao}"}', NOW(), NOW());
     `
+    return query
 };
 
 function createWindow() {
@@ -375,7 +376,7 @@ ipcMain.on('new-pn', async (e, arg) => {
         let idp = res.dataValues.id + 1;
         let query = "";
         let celulaAlvo = arg.celula;
-        console.log(arg);
+
         switch (celulaAlvo) {
             case "Cel3mc":
                 query = cel3mc(idp, arg)

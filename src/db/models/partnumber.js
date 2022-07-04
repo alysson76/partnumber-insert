@@ -39,6 +39,10 @@ function initPartnumber (sequelize) {
         cod_fornecedor: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        partnumber: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     }, {
         sequelize,
